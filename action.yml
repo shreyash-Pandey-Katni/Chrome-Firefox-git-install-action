@@ -2,8 +2,6 @@
 
 name: install Linux package
 description: Install Chrome, Firefox and Git on Linux
-icon: "package"
-color: "blue"
 inputs:
   chrome:
     type: boolean
