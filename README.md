@@ -6,7 +6,7 @@ You can use it using following snippet
 
 ```
 
-    - uses: Shreyashjiodndian2/installLinuxAction@v1
+    - uses: shreyash-Pandey-Katni/Chrome-Firefox-git-install-action@v1
         with:
             chrome: {true or false}
             firefox: {false or true}
