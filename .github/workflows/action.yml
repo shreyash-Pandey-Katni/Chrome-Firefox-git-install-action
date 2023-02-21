@@ -2,8 +2,6 @@
 
 name: install Linux package
 description: Install Chrome, Firefox and Git on Linux
-icon: "package"
-color: "blue"
 inputs:
   chrome:
     type: boolean
@@ -30,3 +28,6 @@ runs:
       if: ${{ inputs.git }}
       run: |
         sudo apt-get install git
+branding:
+  icon: "package"
+  color: "blue"

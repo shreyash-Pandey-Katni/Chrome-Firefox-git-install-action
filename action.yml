@@ -30,3 +30,6 @@ runs:
       if: ${{ inputs.git }}
       run: |
         sudo apt-get install git
+branding:
+  icon: "package"
+  color: "blue"
