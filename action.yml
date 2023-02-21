@@ -1,0 +1,29 @@
+# This is a basic workflow to help you get started with Actions
+
+name: install Linux package
+inputs:
+  chrome:
+    type: boolean
+    required: true
+  linux:
+    type: boolean
+    required: true
+  git:
+    type: boolean
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      if: ${{ inputs.chrome }}
+      run: |
+        sudo apt-get install google-chrome-stable
+    - shell: bash
+      if: ${{ inputs.linux }}
+      run: |
+        sudo apt-get install linux
+    - shell: bash
+      if: ${{ inputs.git }}
+      run: |
+        sudo apt-get install git
