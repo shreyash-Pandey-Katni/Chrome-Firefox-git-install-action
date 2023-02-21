@@ -11,4 +11,5 @@ You can use it using following snippet
             chrome: {true or false}
             firefox: {false or true}
             git: {true or false}
+            isWindows: {true or false}
 ```
