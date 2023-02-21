@@ -5,7 +5,7 @@ inputs:
   chrome:
     type: boolean
     required: true
-  linux:
+  firefox:
     type: boolean
     required: true
   git:
@@ -20,9 +20,9 @@ runs:
       run: |
         sudo apt-get install google-chrome-stable
     - shell: bash
-      if: ${{ inputs.linux }}
+      if: ${{ inputs.firefox }}
       run: |
-        sudo apt-get install linux
+        sudo apt-get install firefox
     - shell: bash
       if: ${{ inputs.git }}
       run: |
