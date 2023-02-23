@@ -23,28 +23,28 @@ runs:
   using: "composite"
   steps:
     - shell: bash
-      if: ${{ inputs.chrome && !inputs.isWindows}}
+      if: ${{ inputs.chrome == 'true' && inputs.isWindows == 'false'}}
       run: |
         echo ${{ inputs.chrome}}
         sudo apt-get install google-chrome-stable
     - shell: bash
-      if: ${{ inputs.firefox && !inputs.isWindows}}
+      if: ${{ inputs.firefox == 'true' && inputs.isWindows == 'false'}}
       run: |
         sudo apt-get install firefox
     - shell: bash
-      if: ${{ inputs.git && !inputs.isWindows}}
+      if: ${{ inputs.git == 'true' && inputs.isWindows == 'false'}}
       run: |
         sudo apt-get install git
     - shell: powershell
-      if: ${{ inputs.isWindows && inputs.chrome}}
+      if: ${{ inputs.isWindows == 'true' && inputs.chrome == 'true'}}
       run: |
         $LocalTempDir = $env:TEMP; $ChromeInstaller = "ChromeInstaller.exe"; (new-object    System.Net.WebClient).DownloadFile('http://dl.google.com/chrome/install/375.126/chrome_installer.exe', "$LocalTempDir\$ChromeInstaller"); & "$LocalTempDir\$ChromeInstaller" /silent /install; $Process2Monitor =  "ChromeInstaller"; Do { $ProcessesFound = Get-Process | ?{$Process2Monitor -contains $_.Name} | Select-Object -ExpandProperty Name; If ($ProcessesFound) { "Still running: $($ProcessesFound -join ', ')" | Write-Host; Start-Sleep -Seconds 2 } else { rm "$LocalTempDir\$ChromeInstaller" -ErrorAction SilentlyContinue -Verbose } } Until (!$ProcessesFound)
     - shell: powershell
-      if: ${{ inputs.isWindows && inputs.firefox}}
+      if: ${{ inputs.isWindows == 'true' && inputs.firefox == 'true'}}
       run: |
         Invoke-WebRequest -OutFile "Firefox Installer.exe" -Uri https://download.mozilla.org/?product=firefox-stub
     - shell: powershell
-      if: ${{ inputs.isWindows && inputs.git}}
+      if: ${{ inputs.isWindows == 'true' && inputs.git == 'true'}}
       run: |
         # get latest download url for git-for-windows 64-bit exe
         $git_url = "https://api.github.com/repos/git-for-windows/git/releases/latest"
