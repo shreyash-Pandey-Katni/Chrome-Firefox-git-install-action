@@ -5,13 +5,16 @@ description: Install Chrome, Firefox and Git on OS
 inputs:
   chrome:
     type: boolean
-    required: true
+    default: false
+    # required: true
   firefox:
     type: boolean
-    required: true
+    default: false
+    # required: true
   git:
     type: boolean
-    required: true
+    default: false
+    # required: true
   isWindows:
     type: boolean
     required: true
@@ -22,6 +25,7 @@ runs:
     - shell: bash
       if: ${{ inputs.chrome && !inputs.isWindows}}
       run: |
+        echo ${{ inputs.chrome}}
         sudo apt-get install google-chrome-stable
     - shell: bash
       if: ${{ inputs.firefox && !inputs.isWindows}}
