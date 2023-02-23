@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Install Chrome, Firefox and Git on OS
-      uses: username/repo-name@v1
+      uses: shreyash-Pandey-Katni/Chrome-Firefox-git-install-action@v2
       with:
         chrome: true
         firefox: true
