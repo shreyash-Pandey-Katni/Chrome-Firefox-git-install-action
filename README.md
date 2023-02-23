@@ -1,15 +1,38 @@
-## Install Chrome, Firefox, and Git on ubuntu or Windows
+# Github Action: Install Chrome, Firefox and Git on OS
 
-#### This is a script to install Chrome, Firefox, and Git on ubuntu or Windows. It can be used to install these programs on any version of ubuntu or Windows. You can also use this script to install only one of these programs. This script is written in bash and can be used in any bash script.
+This is a Github Action that installs Chrome, Firefox and Git on the OS. This action works on both Linux and Windows systems.
 
-You can use it using following snippet 
+### Inputs
+
+This action has the following inputs:
+* `chrome`: A boolean input that indicates whether Chrome should be installed or not. Default value is false.
+* `firefox`: A boolean input that indicates whether Firefox should be installed or not. Default value is false.
+* `git`: A boolean input that indicates whether Git should be installed or not. Default value is false.
+* `isWindows`: A boolean input that indicates whether the OS is Windows or not. Default value is true if the runner's OS is Windows, otherwise false. It is not required to set this input as it detects OS automatically.
+
+### Outputs
+
+This action does not have any outputs.
+
+### Example Usage
 
 ```
+name: Example Workflow
 
-    - uses: shreyash-Pandey-Katni/Chrome-Firefox-git-install-action@v1
-        with:
-            chrome: {true or false}
-            firefox: {false or true}
-            git: {true or false}
-            isWindows: {true or false}
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Chrome, Firefox and Git on OS
+      uses: username/repo-name@v1
+      with:
+        chrome: true
+        firefox: true
+        git: true
 ```
+
+### License
+
+This action is licensed under the [MIT License](LICENSE).
