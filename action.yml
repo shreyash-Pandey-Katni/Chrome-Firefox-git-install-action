@@ -18,7 +18,7 @@ inputs:
   isWindows:
     type: boolean
     # required: true
-    default: runner.os == 'Windows'
+    default: ${{runner.os == 'Windows'}}
 
 runs:
   using: "composite"
