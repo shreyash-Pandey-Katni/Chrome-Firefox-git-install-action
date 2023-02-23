@@ -17,7 +17,7 @@ inputs:
     # required: true
   isWindows:
     type: boolean
-    required: true
+    # required: true
     default: runner.os == 'Windows'
 
 runs:
