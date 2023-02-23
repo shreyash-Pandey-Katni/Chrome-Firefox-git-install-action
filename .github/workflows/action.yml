@@ -25,7 +25,7 @@ runs:
     - shell: bash
       if: ${{ inputs.chrome == 'true' && inputs.isWindows == 'false'}}
       run: |
-        echo ${{ inputs.chrome}}
+        echo ${{ runner.os}}
         sudo apt-get install google-chrome-stable
     - shell: bash
       if: ${{ inputs.firefox == 'true' && inputs.isWindows == 'false'}}
